@@ -21,7 +21,7 @@ const Navbar = () => {
 
             <div>
 
-                <Button className='rounded-[8px] mb-[14px] mt-[20px] mr-[50px] px-[30px] py-[20px] ' variant='solid'>
+                <Button className='rounded-[8px] mb-[14px] mt-[20px] mr-[50px] px-[30px] py-[20px]' variant='solid'>
                     <img
                     src={icone2}
                     alt='Entrar'
