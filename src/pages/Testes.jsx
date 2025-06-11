@@ -6,6 +6,7 @@ import PrecoDeAte from "../components/PrecoDeAte";
 import QuantidadeQuartos from "../components/QuantidadeQuartos";
 import TiposImoveis from "../components/TiposImoveis";
 
+
 const Testes = () => {
   return (
     <>
