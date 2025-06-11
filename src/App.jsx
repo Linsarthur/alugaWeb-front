@@ -1,12 +1,11 @@
-import Navbar from "./components/Navbar";
 import AntProvider from "./contexts/AntContext";
-import Cadastro from "./pages/Cadastro";
+import Paths from "./routes/Paths";
 
 function App() {
   return (
     <>
       <AntProvider>
-        <Navbar />
+        <Paths />
       </AntProvider>
     </>
   );

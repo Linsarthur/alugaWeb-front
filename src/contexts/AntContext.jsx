@@ -5,7 +5,7 @@ export const AntContext = createContext();
 
 const AntProvider = ({ children }) => {
   return (
-    <AntContext.Provider>
+    <AntContext.Provider value={{}}>
       <ConfigProvider
         theme={{
           token: {
