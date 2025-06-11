@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Cadastro from "../pages/Cadastro";
 import Home from "../pages/Home";
 import Testes from "../pages/testes";
-import Home from "../pages/home";
+
 
 const Paths = () => {
   return (
