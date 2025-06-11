@@ -1,11 +1,11 @@
 import AntProvider from "./contexts/AntContext";
-import Cadastro from "./pages/Cadastro";
+import Paths from "./routes/Paths";
 
 function App() {
   return (
     <>
       <AntProvider>
-        <Cadastro />
+        <Paths />
       </AntProvider>
     </>
   );
