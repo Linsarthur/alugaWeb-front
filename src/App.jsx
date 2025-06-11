@@ -1,11 +1,11 @@
+import Navbar from "./components/Navbar";
 import AntProvider from "./contexts/AntContext";
-import Paths from "./routes/Paths";
 
 function App() {
   return (
     <>
       <AntProvider>
-        <Paths />
+        <Navbar />
       </AntProvider>
     </>
   );
