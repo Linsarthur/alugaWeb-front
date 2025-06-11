@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import Cadastro from "../pages/Cadastro";
+import Home from "../pages/Home";
 import Testes from "../pages/testes";
 
 const Paths = () => {
@@ -7,7 +8,7 @@ const Paths = () => {
     <>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/cadastro" element={<Cadastro />} />
           {/* <Route path="/pesquisa" element={<Pesquisa />} /> */}
