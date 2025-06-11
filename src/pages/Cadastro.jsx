@@ -19,7 +19,7 @@ const Cadastro = () => {
             </div>
           </div>
           <div>
-           <FormCadastro/>
+            <FormCadastro />
           </div>
         </div>
         <div className="mt-[70px] pb-5 text-[#E04300] font-bold">
