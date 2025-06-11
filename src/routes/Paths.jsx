@@ -3,6 +3,7 @@ import Cadastro from "../pages/Cadastro";
 import Home from "../pages/Home";
 import Testes from "../pages/testes";
 
+
 const Paths = () => {
   return (
     <>
