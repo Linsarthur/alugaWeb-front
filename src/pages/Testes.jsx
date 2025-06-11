@@ -1,9 +1,9 @@
 import Aba from "../components/Aba";
 
+
 const Testes = () => {
   return (
     <>
-      <Aba />
     </>
   );
 };
