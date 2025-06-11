@@ -1,12 +1,11 @@
 import AntProvider from "./contexts/AntContext";
-import Cadastro from "./pages/Cadastro";
-import Home from "./pages/home";
+import Paths from "./routes/Paths";
 
 function App() {
   return (
     <>
       <AntProvider>
-        <Home />
+        <Paths />
       </AntProvider>
     </>
   );

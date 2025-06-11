@@ -1,9 +1,9 @@
-import { Button, Form, Input } from "antd";
 import casinha from "../assets/casinha.png";
+import FormCadastro from "../components/FormCadastro";
 const Cadastro = () => {
   return (
     <>
-      <div className="flex justify-center items-center h-screen flex-col relative">
+      <div className="flex justify-center items-center h-screen flex-col mt-[70px]">
         <div className="border-[1px] border-gray-500/20 rounded shadow pt-[40px] pb-[40px] px-[28px] ">
           <div className="flex items-center gap-[75px] pr-[124px]">
             <div className="pb-[50px] ">
@@ -19,49 +19,10 @@ const Cadastro = () => {
             </div>
           </div>
           <div>
-            <Form layout="vertical">
-              <Form.Item
-                label="Nome"
-                name="usuario_nome"
-                rules={[{ required: true, message: "Campo obrigatorio!" }]}
-              >
-                <Input
-                  placeholder="Seu nome aqui"
-                  className="h-[54px] w-[344px]"
-                  variant="filled"
-                />
-              </Form.Item>
-
-              <Form.Item
-                label="Email"
-                name="usuario_email"
-                rules={[{ required: true, message: "Campo obrigatorio!" }]}
-              >
-                <Input
-                  placeholder="email@gmail.com"
-                  className="h-[54px]"
-                  variant="filled"
-                />
-              </Form.Item>
-
-              <Form.Item
-                label="Senha"
-                name="usuario_senha"
-                rules={[{ required: true, message: "Campo obrigatorio!" }]}
-              >
-                <Input
-                  placeholder="Senha aqui"
-                  className="h-[54px]"
-                  variant="filled"
-                />
-              </Form.Item>
-              <Button color="primary" variant="solid" className="w-full">
-                Enviar
-              </Button>
-            </Form>
+            <FormCadastro />
           </div>
         </div>
-        <div className="absolute bottom-10 text-[#E04300] font-bold">
+        <div className="mt-[70px] pb-5 text-[#E04300] font-bold">
           <h6>Aluga web, todos os direitos reservados.</h6>
         </div>
       </div>
