@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
+import Cards from "../components/Cards";
 import Cadastro from "../pages/Cadastro";
-import Testes from "../pages/testes";
-import Home from "../pages/home";
+import Home from "../pages/Home";
 
 const Paths = () => {
   return (
@@ -12,7 +12,7 @@ const Paths = () => {
           {/* <Route path="/login" element={<Login />} /> */}
           <Route path="/cadastro" element={<Cadastro />} />
           {/* <Route path="/pesquisa" element={<Pesquisa />} /> */}
-          <Route path="/testes" element={<Testes />} />
+          <Route path="/testes" element={<Cards />} />
         </Routes>
       </BrowserRouter>
     </>
