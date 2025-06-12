@@ -1,13 +1,16 @@
 import AntProvider from "./contexts/AntContext";
+import UsuarioProvider from "./contexts/usuarioContext";
 import Paths from "./Routes/Paths";
 
 
 function App() {
   return (
     <>
-      <AntProvider>
-        <Paths />
-      </AntProvider>
+      <UsuarioProvider>
+        <AntProvider>
+          <Paths />
+        </AntProvider>
+      </UsuarioProvider>
     </>
   );
 }
