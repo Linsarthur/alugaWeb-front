@@ -3,21 +3,19 @@ import mulher from "../assets/mulher.png";
 import pin from "../assets/pin.png";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-// import { useNavigate } from 'react-router';
+
 const Home = () => {
-  // const navigate = useNavigate();
   return (
     <>
       <Navbar />
       <div className="h-screen flex justify-around bg-white max-[640px]:flex-col max-[640px]:items-center max-[640px]:justify-center max-[640px]:px-4 max-[640px]:py-10">
         <main className="flex flex-1 items-center justify-between px-[50px] py-16 max-[640px]:flex-col max-[640px]:gap-8 max-[640px]:px-6 max-[640px]:w-full">
-          {/* ESQUERDA */}
           <div className="w-full max-[640px]:flex max-[640px]:flex-col max-[640px]:items-center max-[640px]:text-center">
             <h1 className="text-[36px] font-extrabold leading-[100%] text-[#1E1E1E] max-[640px]:text-[24px] max-[640px]:text-center max-[640px]:leading-snug">
               Onde você quer morar
             </h1>
 
-            <div className="flex items-center w-[606px] border-[3px] border-[#E04300] rounded-full overflow-hidden p-[11px] mt-[30px] max-[640px]:w-full max-[640px]:max-w-[320px] max-[640px]:px-4 max-[640px]:py-3 max-[640px]:mt-5 max-[640px]:gap-3">
+            <div className="flex items-center w-[606px] border-[3px] border-[#E04300] rounded-full overflow-hidden mt-[30px] max-[640px]:w-full max-[640px]:max-w-[320px] max-[640px]:px-4 max-[640px]:py-3 max-[640px]:mt-5 max-[640px]:gap-3">
               <img
                 src={pin}
                 alt="Ícone de localização"
@@ -33,18 +31,17 @@ const Home = () => {
                             w-[54px] h-[54px] max-[640px]:rounded-full 
                             max-[640px]:flex max-[640px]:items-center max-[640px]:justify-center"
               >
-                {/* TEXTO NO DESKTOP */}
                 <span className="block max-[640px]:hidden">Buscar</span>
                 <img src={lupa} alt="" className="md:hidden" />
               </button>
             </div>
           </div>
 
-          <div className="relative w-full h-screen overflow-visible ml-20 max-[640px]:ml-0 max-[640px]:h-auto max-[640px]:flex max-[640px]:justify-center">
+          <div className="w-full h-screen overflow-visible ml-20 max-[640px]:ml-0 max-[640px]:h-auto max-[640px]:flex max-[640px]:justify-center">
             <img
               src={mulher}
               alt="Mulher sorrindo com celular"
-              className="absolute top-[158px] left-[60px] w-[550px] h-[489px] object-contain max-[640px]:static max-[640px]:w-[260px] max-[640px]:h-auto"
+              className=" top-[158px] left-[60px] w-full h-[489px] object-contain max-[640px]:static max-[640px]:w-[260px] max-[640px]:h-auto"
             />
           </div>
         </main>
