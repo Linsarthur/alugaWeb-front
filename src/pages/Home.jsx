@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import lupa from "../assets/lupa.png";
 import mulher from "../assets/mulher.png";
 import pin from "../assets/pin.png";
@@ -5,6 +6,20 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
+
+  const [estados, setEstados] = useState([]);
+
+async function buscarEstados() {
+const request = await fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome")
+const response = await request.json();
+
+setEstados(response);
+}
+
+useEffect(() => {
+    buscarEstados();
+}, []) 
+
   return (
     <>
       <Navbar />
@@ -21,10 +36,17 @@ const Home = () => {
                 alt="Ícone de localização"
                 className="w-[23px] ml-[29px] max-[640px]:ml-0"
               />
-              <input
-                type="text"
+              <select
                 className="w-[180px] lg:w-auto lg:flex-1 h-full outline-none text-[#1E1E1E] text-base px-3"
-              />
+              >
+                {
+                  estados.map((estado) => (
+                    <option key={estado.id} value={estado.sigla}>
+                      {estado.nome}
+                    </option>
+                  ))
+                }
+              </select>
 
               <button
                 className="lg:w-[116px] lg:h-[54px] bg-[#E04300] text-white font-bold rounded-full cursor-pointer 
