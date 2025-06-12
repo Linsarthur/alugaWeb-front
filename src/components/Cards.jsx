@@ -40,8 +40,8 @@ const Cards = () => {
               </p>
             </div>
 
-            <div className="bg-[#E04300] p-[14px] text-center rounded-[8px]">
-              <button className="text-white">Contatar</button>
+            <div className="bg-[#E04300] p-[14px] text-center rounded-[8px] ">
+              <button className="text-white cursor-pointer ">Contatar</button>
             </div>
           </div>
         </div>
