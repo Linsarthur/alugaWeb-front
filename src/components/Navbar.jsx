@@ -1,6 +1,8 @@
 import { Button } from "antd";
 import icone from "../assets/casinha.png";
 import icone2 from "../assets/icon-user.png";
+import favorito from "../assets/coracao.png";
+import imagemlogin from "../assets/silvio.png";
 import { useContext } from "react";
 import { usuarioContext } from "../contexts/usuarioContext";
 import { Link } from "react-router";
@@ -25,17 +27,24 @@ const Navbar = () => {
       <div>
         {
           logado ? (
-            <div className="flex items-center">
+            <div className="flex justify-between items-center mt-[29px] gap-4">
               <div>
                 {/* icone do coração */}
-                <Link to="/favoritos">Favoritos</Link>
+                <img 
+                src={favorito} 
+                alt="Favoritos" 
+                className="mt-[29px]"/>
+                <Link to="/pesquisa">Favoritos</Link>
               </div>
               <div>
                 <h2>nome</h2>
                 <h3>Sair</h3>
               </div>
-              <div className="">
-                <img src="" alt="" />
+              <div className="flex mt-[16px] mr-[50px]">
+                <img 
+                src={imagemlogin}
+                alt="" 
+                className="flex items-center"/>
               </div>
             </div>
           ) : <a href="/login"
