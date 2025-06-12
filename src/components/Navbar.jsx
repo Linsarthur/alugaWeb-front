@@ -1,6 +1,8 @@
 import { Button } from "antd";
 import icone from "../assets/casinha.png";
 import icone2 from "../assets/icon-user.png";
+import favorito from "../assets/coracao.png";
+import imagemlogin from "../assets/silvio.png";
 import { useContext } from "react";
 import { usuarioContext } from "../contexts/usuarioContext";
 import { Link } from "react-router";
@@ -28,6 +30,10 @@ const Navbar = () => {
             <div className="flex items-center">
               <div>
                 {/* icone do coração */}
+                <img 
+                src={favorito} 
+                alt="Favoritos" 
+                className="mt-[29px]"/>
                 <Link to="/favoritos">Favoritos</Link>
               </div>
               <div>
@@ -35,7 +41,10 @@ const Navbar = () => {
                 <h3>Sair</h3>
               </div>
               <div className="">
-                <img src="" alt="" />
+                <img 
+                src={imagemlogin}
+                alt="" 
+                className=""/>
               </div>
             </div>
           ) : <a href="/login"
