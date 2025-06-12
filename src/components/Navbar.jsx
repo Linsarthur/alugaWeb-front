@@ -1,8 +1,13 @@
 import { Button } from "antd";
 import icone from "../assets/casinha.png";
 import icone2 from "../assets/icon-user.png";
+import { useContext } from "react";
+import { usuarioContext } from "../contexts/usuarioContext";
+import { Link } from "react-router";
 
 const Navbar = () => {
+
+  const { logado } = useContext(usuarioContext)
   return (
     <header className="flex justify-between items-center  px-[50px]  border-b-1 border-[#00000026] w-full">
       <div className="flex items-center">
@@ -18,13 +23,29 @@ const Navbar = () => {
       </div>
 
       <div>
-        <Button
-          className="rounded-[8px] mb-[14px] mt-[20px] mr-[50px] px-[30px] py-[20px]"
-          variant="solid"
-        >
-          <img src={icone2} alt="Entrar" className="" />
-          Entrar
-        </Button>
+        {
+          logado ? (
+            <div className="flex items-center">
+              <div>
+                {/* icone do coração */}
+                <Link to="/favoritos">Favoritos</Link>
+              </div>
+              <div>
+                <h2>nome</h2>
+                <h3>Sair</h3>
+              </div>
+              <div className="">
+                <img src="" alt="" />
+              </div>
+            </div>
+          ) : <a href="/login"
+            className="rounded-[8px] mb-[14px] mt-[20px] mr-[50px] px-[30px] py-[20px]"
+            variant="solid"
+          >
+            <img src={icone2} alt="Entrar" className="" />
+            Entrar
+          </a>
+        }
       </div>
     </header>
   );
