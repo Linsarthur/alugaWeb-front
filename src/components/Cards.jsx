@@ -22,7 +22,7 @@ const Cards = () => {
             <div className="flex text-[#959595] items-center gap2">
               <p className="mr-5">500m²</p>
               <box-icon name="bed" color="#595959"></box-icon>
-              <p className="mr-5 ml-1">3 quartos</p>
+              <p className="mr-5 ml-1">3 Quartos</p>
               <box-icon name="car" color="#595959"></box-icon>
               <p className="mr-5 ml-1">5 Garagem</p>
             </div>
