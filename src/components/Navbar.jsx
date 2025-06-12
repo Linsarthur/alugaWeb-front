@@ -34,7 +34,7 @@ const Navbar = () => {
                 src={favorito} 
                 alt="Favoritos" 
                 className="mt-[29px]"/>
-                <Link to="/favoritos">Favoritos</Link>
+                <Link to="/pesquisa">Favoritos</Link>
               </div>
               <div>
                 <h2>nome</h2>
