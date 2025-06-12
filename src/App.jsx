@@ -1,5 +1,6 @@
 import AntProvider from "./contexts/AntContext";
-import Paths from "./routes/Paths";
+import Paths from "./Routes/Paths";
+
 
 function App() {
   return (
