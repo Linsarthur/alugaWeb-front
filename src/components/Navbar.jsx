@@ -1,7 +1,7 @@
 
 import { Button } from 'antd';
 import icone from '../assets/casinha.png';
-import icone2 from '../assets/Frame.png';
+import icone2 from '../assets/icon-user.png';
 
 
 const Navbar = () => {
