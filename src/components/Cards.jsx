@@ -8,8 +8,8 @@ const Cards = () => {
           <div className="">
             <img src={imageCasa} alt="" className="h-full" />
           </div>
-          <div className="pt-5 pb-5 flex flex-col gap-5">
-            <div className="text-[#595959] text-[16px] ">
+          <div className="pt-5 pb-5 flex flex-col gap-20">
+            <div className="text-[#595959] text-[16px] font-bold">
               <h2>Rua Eduardo Bezerra, 1182</h2>
               <h2>São joão do Taouape, Fortaleza/CE</h2>
             </div>
@@ -34,13 +34,13 @@ const Cards = () => {
               </div>
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 mt-20">
               <p className="font-bold text-[16px] leading text-[#E04300]">
                 R$ 5.000
               </p>
             </div>
 
-            <div className="pr-5 pb-5">
+            <div className="pr-5 pb-5 mt-15">
               <div className="bg-[#E04300] p-[14px] text-center rounded-[8px] ">
                 <button className="text-white cursor-pointer ">Contatar</button>
               </div>

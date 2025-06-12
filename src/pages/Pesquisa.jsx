@@ -13,7 +13,7 @@ const Pesquisa = () => {
   return (
     <>
       <Navbar />
-      <div className="flex p-5 gap-5">
+      <div className="flex p-5 gap-5 justify-around">
         <div className="">
           <Aba />
           <Localizacao />
