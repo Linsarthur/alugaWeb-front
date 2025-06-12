@@ -27,7 +27,7 @@ const Navbar = () => {
       <div>
         {
           logado ? (
-            <div className="flex items-center">
+            <div className="flex justify-between items-center mt-[29px] gap-4">
               <div>
                 {/* icone do coração */}
                 <img 
@@ -40,11 +40,11 @@ const Navbar = () => {
                 <h2>nome</h2>
                 <h3>Sair</h3>
               </div>
-              <div className="">
+              <div className="flex mt-[16px] mr-[50px]">
                 <img 
                 src={imagemlogin}
                 alt="" 
-                className=""/>
+                className="flex items-center"/>
               </div>
             </div>
           ) : <a href="/login"
