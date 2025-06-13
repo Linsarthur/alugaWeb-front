@@ -35,7 +35,7 @@ const Cards = () => {
             </div>
 
             <div className="mb-4 mt-20">
-              <p className="font-bold text-[16px] leading text-[#E04300]">
+              <p className="font-bold text-[24px] leading text-[#E04300]">
                 R$ 5.000
               </p>
             </div>
