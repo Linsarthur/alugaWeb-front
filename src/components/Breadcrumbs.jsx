@@ -1,28 +1,36 @@
-import iconesc from'../assets/icone-setacinza.png';
+import Ordenar from "./Ordernar";
 
 const Breadcrumb = () => {
-    return ( 
-        <>
-        <div className='text-[#595959] font-bold flex mt-[110px] mb-1 ml-[473px]'>
-            <h3 className='flex justify-center items-center'>Casas para alugar</h3>
-            
-            <img
-            src={iconesc}
-            alt=""
-            className="mr-2"/>
-            <h3>CE</h3>
-            <img
-            src={iconesc}
-            alt=""
-            className="mr-2"/>
-            <h3 className=''>Fortaleza</h3>
-
+  return (
+    <>
+      <div className="py-8 px-[50px] flex justify-between items-center">
+        <div className="flex gap-2">
+          <button className="cursor-pointer"><box-icon name="slider-alt" color="#595959"></box-icon></button>
+          <p className="text-[#595959]">Filtros</p>
         </div>
-        <div className='text-[#E04300] text-[20px] font-bold h-[24px] ml-[473px] pt-[8px] '>
-            122 Casas para alugar em Fortaleza - CE
+        <div>
+          <div className="pl-40">
+            <h4 className="flex text-[#595959] font-bold">
+              Casas para alugar{" "}
+              <box-icon name="chevron-right" color="#595959"></box-icon> CE
+              <box-icon name="chevron-right" color="#595959"></box-icon>
+              Fortaleza
+            </h4>
+            <div>
+              <h4 className="">
+                <h2 className="font-bold text-[20px] text-[#E04300]">
+                  122 Casas para alugar em Fortaleza - CE
+                </h2>
+              </h4>
+            </div>
+          </div>
         </div>
-        </>
-    );
-}
+        <div>
+          <Ordenar />
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Breadcrumb;

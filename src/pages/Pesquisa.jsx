@@ -1,5 +1,6 @@
 import Aba from "../components/Aba";
 import Banheiros from "../components/Banheiros";
+import Breadcrumb from "../components/Breadcrumbs";
 import Cards from "../components/Cards";
 import Footer from "../components/Footer";
 import Garagens from "../components/Garagens";
@@ -13,7 +14,11 @@ const Pesquisa = () => {
   return (
     <>
       <Navbar />
-      <div className="flex p-5 gap-5 justify-around">
+      <div>
+        <Breadcrumb />
+      </div>
+
+      <div className="flex p-[20px] gap-5 justify-between">
         <div className="">
           <Aba />
           <Localizacao />
@@ -29,11 +34,10 @@ const Pesquisa = () => {
             <Cards />
             <Cards />
             <Cards />
-           
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
