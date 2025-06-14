@@ -14,7 +14,7 @@ const Cadastro = () => {
                 <img src={casinha} alt="" className="p-[6px]" />
               </div>
               <div>
-                <h2 className="text-[#DF4300] font-bold ">Aluga Web</h2>
+                <h2 className="text-[rgb(223,67,0)] font-bold ">Aluga Web</h2>
               </div>
             </div>
           </div>
