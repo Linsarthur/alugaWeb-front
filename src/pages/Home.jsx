@@ -59,7 +59,7 @@ useEffect(() => {
             </div>
           </div>
 
-          <div className="w-full h-screen overflow-visible ml-20 max-[640px]:ml-0 max-[640px]:h-auto max-[640px]:flex max-[640px]:justify-center">
+          <div className="w-full overflow-visible ml-20 max-[640px]:ml-0 max-[640px]:h-auto max-[640px]:flex max-[640px]:justify-center">
             <img
               src={mulher}
               alt="Mulher sorrindo com celular"
