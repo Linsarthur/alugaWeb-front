@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router";
 import icone from "../assets/casinha.png";
-import favorito from "../assets/coracao.png";
 import icone2 from "../assets/icon-user.png";
 import imagemlogin from "../assets/silvio.png";
 import { usuarioContext } from "../contexts/usuarioContext";
@@ -24,17 +23,16 @@ const Navbar = () => {
 
       <div>
         {logado ? (
-          <div className="flex justify-between items-center mt-[29px] gap-4">
-            <div>
-              {/* icone do coração */}
-              <img src={favorito} alt="Favoritos" className="mt-[29px]" />
-              <Link to="/pesquisa">Favoritos</Link>
+          <div className=" flex justify-between items-center my-[14px] gap-4">
+            <div className="flex gap-2 mr-5">
+              <box-icon name="heart" color="#595959"></box-icon>
+              <Link to="/pesquisa" className="text-[#595959]">Favoritos</Link>
             </div>
-            <div>
-              <h2>nome</h2>
-              <h3>Sair</h3>
+            <div className="flex flex-col items-end">
+              <h2 className="text-[#E04300] font-bold">Usuário da silva</h2>
+              <a href="/pesquisa" className="text-[#959595] font-bold">Sair</a>
             </div>
-            <div className="flex mt-[16px] mr-[50px]">
+            <div className="flex mt-[7px] mr-[50px]">
               <img src={imagemlogin} alt="" className="flex items-center" />
             </div>
           </div>
@@ -42,7 +40,6 @@ const Navbar = () => {
           <>
             <div className="">
               <button className="flex">
-                
                 <a
                   href="/login"
                   className="flex justify-center items-center gap-2 rounded-[8px] mb-[14px] mt-[20px] mr-[50px] px-[35px] py-[16px] bg-[#E0430033] text-[#E04300B2] font-bold"
