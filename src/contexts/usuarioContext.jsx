@@ -1,18 +1,24 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
+export const LoginContext = createContext();
 
-export const usuarioContext = createContext();
+const LoginProvider = ({ children }) => {
+  const [logado, setLogado] = useState(false);
+  const [usuario, setUsuario] = useState({});
 
-const UsuarioProvider = ({ children }) => {
-    const [logado,setLogado] = useState(false)
-
-    return (
-
-        <>
-            <usuarioContext.Provider value={{logado, setLogado}}>
-                {children}
-            </usuarioContext.Provider>
-        </>
-    );
-}
-export default UsuarioProvider;
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      setLogado(true);
+      setUsuario(JSON.parse(sessionStorage.getItem("usuario")));
+    }
+  }, [logado]);
+  return (
+    <>
+      <LoginContext.Provider value={{ logado, setLogado, usuario }}>
+        {children}
+      </LoginContext.Provider>
+    </>
+  );
+};
+export default LoginProvider;

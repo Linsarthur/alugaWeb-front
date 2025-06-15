@@ -3,10 +3,10 @@ import { Link } from "react-router";
 import icone from "../assets/casinha.png";
 import icone2 from "../assets/icon-user.png";
 import imagemlogin from "../assets/silvio.png";
-import { usuarioContext } from "../contexts/usuarioContext";
+import { LoginContext } from "../contexts/usuarioContext";
 
 const Navbar = () => {
-  const { logado } = useContext(usuarioContext);
+  const { logado } = useContext(LoginContext);
   return (
     <header className="flex justify-between items-center  px-[50px]  border-b-1 border-[#00000026] w-full">
       <div className="flex items-center">

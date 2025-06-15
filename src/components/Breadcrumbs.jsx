@@ -19,11 +19,11 @@ const Breadcrumb = () => {
               Fortaleza
             </h4>
             <div>
-              <h4 className="">
+              <div className="">
                 <h2 className="font-bold text-[20px] text-[#E04300]">
                   122 Casas para alugar em Fortaleza - CE
                 </h2>
-              </h4>
+              </div>
 
               <div className="flex gap-3 mt-5">
                 <button className="cursor-pointer flex gap-2 w-fit px-[12px] text-[14px] py-[11px] border-2 border-[#E04300] rounded text-[#E04300]">
@@ -50,8 +50,6 @@ const Breadcrumb = () => {
                     4
                   </span>
                 </button>
-                
-                
               </div>
             </div>
           </div>

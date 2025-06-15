@@ -15,10 +15,10 @@ const Pesquisa = () => {
     <>
       <Navbar />
       <div>
-        <Breadcrumb />  
+        <Breadcrumb />
       </div>
 
-      <div className="flex p-[20px] gap-5 justify-between">
+      <div className="flex p-[20px] gap-5 justify-around">
         <div className="">
           <Aba />
           <Localizacao />

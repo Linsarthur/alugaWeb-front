@@ -1,6 +1,36 @@
+import { useContext, useRef } from "react";
+import { useNavigate } from "react-router";
 import casinha from "../assets/casinha.png";
+import { LoginContext } from "../contexts/usuarioContext";
+import { AXIOS } from "../services";
 
 const Login = () => {
+  const { setLogado } = useContext(LoginContext);
+  const navigate = useNavigate();
+
+  const emailRef = useRef();
+  const senhaRef = useRef();
+
+  async function onLogin(event) {
+    event.preventDefault();
+    let dados = {
+      usuario_email: emailRef.current.value,
+      usuario_senha: senhaRef.current.value,
+    };
+
+    const request = await AXIOS.post("login", dados);
+
+    if (request.data.token) {
+      sessionStorage.setItem("token", request.data.token);
+      sessionStorage.setItem("usuario", JSON.stringify(request.data.usuario));
+      setLogado(true);
+      navigate("/pesquisa");
+      return;
+    }
+
+    alert(request.data.mensagem);
+  }
+
   return (
     <>
       <div className="flex items-center h-screen flex-col">
@@ -18,9 +48,11 @@ const Login = () => {
             </div>
           </div>
           <div>
-            <form className="w-[344px]">
+            <form className="w-[344px]" onSubmit={onLogin}>
               <label className="block mb-2 text-[#595959]">Email</label>
               <input
+                ref={emailRef}
+                placeholder="Insira seu email"
                 type="text"
                 className="p-2 bg-gray-500/15 rounded-[8px] w-[344px] outline-transparent border-[1px] border-[#D9D9D9]"
               />
@@ -29,19 +61,21 @@ const Login = () => {
                 Senha
               </label>
               <input
+                ref={senhaRef}
+                placeholder="********"
                 type="password"
                 className="p-2 bg-gray-500/15 rounded-[8px] w-[344px] outline-transparent border-[1px] border-[#D9D9D9]"
               />
               <div className="flex justify-center gap-[71px] mt-[25px] mb-[29px] ">
                 <a
                   href=""
-                  className="block flex font-bold text-[12px] pl-[62px] whitespace-nowrap"
+                  className="block font-bold text-[12px] pl-[62px] whitespace-nowrap"
                 >
                   Esqueci minha senha
                 </a>
                 <a
                   href=""
-                  className="block flex font-bold text-[12px] pr-[92px] whitespace-nowrap"
+                  className="block font-bold text-[12px] pr-[92px] whitespace-nowrap"
                 >
                   Criar conta
                 </a>
