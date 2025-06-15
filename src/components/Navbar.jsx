@@ -1,16 +1,16 @@
 import { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import icone from "../assets/casinha.png";
 import icone2 from "../assets/icon-user.png";
-import imagemlogin from "../assets/silvio.png";
 import { LoginContext } from "../contexts/usuarioContext";
 
 const Navbar = () => {
-  const { logado } = useContext(LoginContext);
+  const { logado, usuario } = useContext(LoginContext);
 
+  const navigate = useNavigate();
   const logout = () => {
     sessionStorage.clear();
-    navigate("/");
+    navigate("/")
   };
 
   return (
@@ -37,13 +37,29 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="flex flex-col items-end">
-              <h2 className="text-[#E04300] font-bold">Usuário da silva</h2>
-              <a href="/pesquisa" className="text-[#959595] font-bold" onClick={logout}>
+              <h2 className="text-[#E04300] font-bold">
+                {usuario?.usuario_nome}
+              </h2>
+              <a
+                href="/"
+                className="text-[#959595] font-bold"
+                onClick={logout}
+              >
                 Sair
               </a>
             </div>
             <div className="flex mt-[7px] mr-[50px]">
-              <img src={imagemlogin} alt="" className="flex items-center" />
+              {usuario?.usuario_foto ? (
+                <img
+                  src={usuario.usuario_foto}
+                  alt="Foto do usuário"
+                  className="w-[36px] h-[36px] rounded-full object-cover"
+                />
+              ) : (
+                <div className="w-[36px] h-[36px] bg-[#E04300] text-white font-bold flex items-center justify-center rounded-full">
+                  {usuario?.usuario_nome?.[0]?.toUpperCase()}
+                </div>
+              )}
             </div>
           </div>
         ) : (

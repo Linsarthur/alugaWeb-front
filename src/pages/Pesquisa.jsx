@@ -31,9 +31,7 @@ const Pesquisa = () => {
         <div className="">
           <div className="flex flex-col gap-7">
             <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
+            
           </div>
         </div>
       </div>

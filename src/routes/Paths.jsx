@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router";
+import Breadcrumb from "../components/Breadcrumbs";
 import Cards from "../components/Cards";
 import Cadastro from "../pages/Cadastro";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Pesquisa from "../pages/Pesquisa";
-import Breadcrumb from "../components/Breadcrumbs";
-
+import SafePath from "./SafePath";
 
 const Paths = () => {
   return (
@@ -15,13 +15,16 @@ const Paths = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
-
-          <Route path="/pesquisa" element={<Pesquisa />} />
+          <Route
+            path="/pesquisa"
+            element={
+              <SafePath>
+                <Pesquisa />
+              </SafePath>
+            }
+          />
           <Route path="/testes" element={<Cards />} />
-
-          {/* <Route path="/pesquisa" element={<Pesquisa />} /> */}
           <Route path="/testes" element={<Breadcrumb />} />
-
         </Routes>
       </BrowserRouter>
     </>
