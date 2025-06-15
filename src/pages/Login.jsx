@@ -74,7 +74,7 @@ const Login = () => {
                   Esqueci minha senha
                 </a>
                 <a
-                  href=""
+                  href="/cadastro"
                   className="block font-bold text-[12px] pr-[92px] whitespace-nowrap"
                 >
                   Criar conta
