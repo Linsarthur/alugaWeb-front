@@ -1,14 +1,16 @@
+import { useNavigate } from "react-router";
 import Ordenar from "./Ordernar";
 
 const Breadcrumb = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="py-8 px-[50px] flex justify-between items-center">
         <div className="flex gap-2">
-          <button className="cursor-pointer">
-            <box-icon name="slider-alt" color="#595959"></box-icon>
+          <button className="cursor-pointer p-5 bg-[#E0430033] text-[#E04300B2] rounded-2xl font-bold hover:bg-[#E04300] hover:text-white">
+            <a href="/cadastrarimovel">Divulgar imóvel</a>
           </button>
-          <p className="text-[#595959]">Filtros</p>
+         
         </div>
         <div>
           <div className="pl-40">

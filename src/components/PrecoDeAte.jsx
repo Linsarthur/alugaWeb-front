@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { FiltroContext } from "../contexts/FiltroContext";
+
 const PrecoDeAte = () => {
+  const { precoMin, setPrecoMin, precoMax, setPrecoMax } =
+    useContext(FiltroContext);
   return (
     <>
       <div className="p-[20px] border border-[#00000026] w-[370px] pb-[30px]">
@@ -12,6 +17,7 @@ const PrecoDeAte = () => {
                 type="number"
                 className="bg-[#0000000D] h-[50px] pl-2 rounded w-[150px]"
                 placeholder="0"
+                onChange={(e) => setPrecoMin(Number(e.target.value))}
               ></input>
             </div>
             <div className="w-fit">
@@ -22,6 +28,7 @@ const PrecoDeAte = () => {
                 type="number"
                 className="bg-[#0000000D] h-[50px] pl-2 rounded w-[150px]"
                 placeholder="0"
+                onChange={(e) => setPrecoMax(Number(e.target.value))}
               ></input>
             </div>
           </div>

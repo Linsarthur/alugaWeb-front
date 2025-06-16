@@ -7,7 +7,7 @@ const FormCadastro = () => {
   const navigate = useNavigate();
   const { setLogado } = useContext(LoginContext);
 
-  // Estado para armazenar os dados do formulário
+
   const [formData, setFormData] = useState({
     usuario_nome: "",
     usuario_email: "",
@@ -15,7 +15,7 @@ const FormCadastro = () => {
     usuario_telefone: "",
   });
 
-  // Atualiza os dados conforme o usuário digita
+
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -24,7 +24,6 @@ const FormCadastro = () => {
     }));
   }
 
-  // Quando o formulário for enviado
   async function handleSubmit(e) {
     e.preventDefault();
     try {

@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router";
+import CadastrarImovel from "../pages/CadastrarImovel";
 import Cadastro from "../pages/Cadastro";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -21,7 +22,14 @@ const Paths = () => {
               </SafePath>
             }
           />
-        
+          <Route
+            path="/cadastrarimovel"
+            element={
+              <SafePath>
+                <CadastrarImovel />
+              </SafePath>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>
