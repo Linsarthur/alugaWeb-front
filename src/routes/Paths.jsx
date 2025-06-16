@@ -1,6 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import Breadcrumb from "../components/Breadcrumbs";
-import Cards from "../components/Cards";
 import Cadastro from "../pages/Cadastro";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -23,8 +21,7 @@ const Paths = () => {
               </SafePath>
             }
           />
-          <Route path="/testes" element={<Cards />} />
-          <Route path="/testes" element={<Breadcrumb />} />
+        
         </Routes>
       </BrowserRouter>
     </>
