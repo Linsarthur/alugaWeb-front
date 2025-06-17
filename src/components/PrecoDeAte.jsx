@@ -4,6 +4,16 @@ import { FiltroContext } from "../contexts/FiltroContext";
 const PrecoDeAte = () => {
   const { precoMin, setPrecoMin, precoMax, setPrecoMax } =
     useContext(FiltroContext);
+
+  const handlePrecoMin = (e) => {
+    const valor = e.target.value.replace(/\D/g, ""); // remove tudo que não for número
+    setPrecoMin(valor ? Number(valor) : null);
+  };
+
+  const handlePrecoMax = (e) => {
+    const valor = e.target.value.replace(/\D/g, "");
+    setPrecoMax(valor ? Number(valor) : null);
+  };
   return (
     <>
       <div className="p-[20px] border border-[#00000026] w-[370px] pb-[30px]">
@@ -14,10 +24,11 @@ const PrecoDeAte = () => {
                 Preços a partir de
               </label>
               <input
-                type="number"
+                type="text"
                 className="bg-[#0000000D] h-[50px] pl-2 rounded w-[150px]"
                 placeholder="0"
-                onChange={(e) => setPrecoMin(Number(e.target.value))}
+                value={precoMin || ""}
+                onChange={handlePrecoMin}
               ></input>
             </div>
             <div className="w-fit">
@@ -25,10 +36,11 @@ const PrecoDeAte = () => {
                 Até
               </label>
               <input
-                type="number"
+                type="text"
                 className="bg-[#0000000D] h-[50px] pl-2 rounded w-[150px]"
                 placeholder="0"
-                onChange={(e) => setPrecoMax(Number(e.target.value))}
+                value={precoMax || ""}
+                onChange={handlePrecoMax}
               ></input>
             </div>
           </div>

@@ -12,15 +12,11 @@ const Localizacao = () => {
           </label>
           <input
             type="text"
-            name=""
-            id=""
-            className="px-[34px] mt-3 bg-gray-500/15 w-[300px] h-[50px] rounded-2xl border border-[#00000026] focus:outline-[#E04300]"
+            className="px-[20px] mt-3 bg-gray-500/15 w-[300px] h-[50px] rounded-2xl border border-[#00000026] focus:outline-[#E04300]"
             onChange={(e) => setLocalizacao(e.target.value)}
             placeholder="Digite a cidade ou estado"
           />
         </form>
-
-        
       </div>
     </>
   );

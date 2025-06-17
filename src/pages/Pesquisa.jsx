@@ -1,3 +1,4 @@
+import { useContext, useEffect, useState } from "react";
 import Aba from "../components/Aba";
 import Banheiros from "../components/Banheiros";
 import Breadcrumb from "../components/Breadcrumbs";
@@ -9,35 +10,84 @@ import Navbar from "../components/Navbar";
 import PrecoDeAte from "../components/PrecoDeAte";
 import QuantidadeQuartos from "../components/QuantidadeQuartos";
 import TiposImoveis from "../components/TiposImoveis";
-import { FiltroProvider } from "../contexts/FiltroContext";
+import { FiltroContext } from "../contexts/FiltroContext";
+import { AXIOS } from "../services";
 
 const Pesquisa = () => {
+  const {
+    tipoNegocio,
+    localizacao,
+    tipoImovel,
+    precoMin,
+    precoMax,
+    quartos,
+    banheiros,
+    garagens,
+  } = useContext(FiltroContext);
+  const [imoveis, setImoveis] = useState([]);
+
+  useEffect(() => {
+    async function buscar() {
+      try {
+        const cidadeEstado = localizacao?.split(" - ");
+        const params = {
+          modalidade: tipoNegocio,
+          cidade: cidadeEstado?.[0],
+          estado: cidadeEstado?.[1],
+          tipo: tipoImovel,
+          precoMin: precoMin ?? undefined,
+          precoMax: precoMax ?? undefined,
+          quartos: quartos ?? undefined,
+          banheiros: banheiros ?? undefined,
+          garagens: garagens ?? undefined,
+        };
+
+        const { data } = await AXIOS.get("/imoveis", { params });
+        setImoveis(data);
+      } catch (err) {
+        console.error("Erro na busca:", err);
+      }
+    }
+
+    buscar();
+  }, [
+    tipoNegocio,
+    localizacao,
+    tipoImovel,
+    precoMin,
+    precoMax,
+    quartos,
+    banheiros,
+    garagens,
+  ]);
   return (
     <>
-      <FiltroProvider>
-        <Navbar />
-        <div>
-          <Breadcrumb />
-        </div>
+      <Navbar />
+      <div className="px-[150px]">
+        <Breadcrumb
+          totalImoveis={imoveis.length}
+          imovel_estado="CE"
+          imovel_cidade="Fortaleza"
+        />
+      </div>
 
-        <div className="flex p-[20px] gap-5 justify-around">
-          <div className="">
-            <Aba />
-            <Localizacao />
-            <TiposImoveis />
-            <PrecoDeAte />
-            <QuantidadeQuartos />
-            <Banheiros />
-            <Garagens />
-          </div>
-          <div className="">
-            <div className="flex flex-col gap-7">
-              <CardImovel />
-            </div>
+      <div className="flex px-[200px] gap-5 justify-between">
+        <div className="">
+          <Aba />
+          <Localizacao />
+          <TiposImoveis />
+          <PrecoDeAte />
+          <QuantidadeQuartos />
+          <Banheiros />
+          <Garagens />
+        </div>
+        <div className="">
+          <div className="flex flex-col gap-7">
+            <CardImovel imoveis={imoveis} />
           </div>
         </div>
-        <Footer />
-      </FiltroProvider>
+      </div>
+      <Footer />
     </>
   );
 };

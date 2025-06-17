@@ -3,20 +3,35 @@ import casaCard from "../assets/casaCard.png";
 import { FiltroContext } from "../contexts/FiltroContext";
 import { AXIOS } from "../services";
 
-const CardImovel = () => {
+const CardImovel = ({ imoveis }) => {
   const [todosImoveis, setTodosImoveis] = useState([]);
-  const { tipoNegocio } = useContext(FiltroContext);
-  const { localizacao } = useContext(FiltroContext);
-  const { tipoImovel } = useContext(FiltroContext);
-  const { precoMin, precoMax } = useContext(FiltroContext);
-  const { quartos } = useContext(FiltroContext);
-  const { banheiros } = useContext(FiltroContext);
-  const { garagens } = useContext(FiltroContext);
+
+  const {
+    tipoNegocio,
+    localizacao,
+    tipoImovel,
+    precoMin,
+    precoMax,
+    quartos,
+    banheiros,
+    garagens,
+  } = useContext(FiltroContext);
 
   useEffect(() => {
     async function carregarImoveis() {
       try {
-        const response = await AXIOS.get("/imoveis");
+        const response = await AXIOS.get("/imoveis", {
+          params: {
+            modalidade: tipoNegocio || undefined,
+            cidade: localizacao || undefined,
+            tipo: tipoImovel || undefined,
+            precoMin: precoMin || undefined,
+            precoMax: precoMax || undefined,
+            quartos: quartos || undefined,
+            banheiros: banheiros || undefined,
+            garagens: garagens || undefined,
+          },
+        });
         setTodosImoveis(response.data);
       } catch (error) {
         console.error("Erro ao buscar imóveis:", error);
@@ -24,40 +39,31 @@ const CardImovel = () => {
     }
 
     carregarImoveis();
-  }, []);
-
- const imoveisFiltrados = todosImoveis.filter((imovel) => {
-  return (
-    (!tipoNegocio || imovel.imovel_modalidade === tipoNegocio) &&
-    (!localizacao ||
-      imovel.imovel_cidade
-        .toLowerCase()
-        .includes(localizacao.toLowerCase())) &&
-    (!tipoImovel || imovel.imovel_tipo === tipoImovel) &&
-    (precoMin === null || precoMin === undefined || imovel.imovel_valor >= precoMin) &&
-    (precoMax === null || precoMax === undefined || imovel.imovel_valor <= precoMax) &&
-    (quartos === null || quartos === undefined || imovel.imovel_quartos == quartos) &&
-    (banheiros === null || banheiros === undefined || imovel.imovel_banheiros == banheiros) &&
-    (garagens === null || garagens === undefined || imovel.imovel_garagens == garagens)
-  );
-});
-
+  }, [
+    tipoNegocio,
+    localizacao,
+    tipoImovel,
+    precoMin,
+    precoMax,
+    quartos,
+    banheiros,
+    garagens,
+  ]);
 
   return (
     <div className="flex flex-col gap-10">
-      {imoveisFiltrados.map((imovel) => (
+      {todosImoveis.map((imovel) => (
         <div
           key={imovel.imovel_id}
           className="flex border border-gray-500/15 rounded-2xl gap-5"
         >
           <div>
             <img
-              src={imovel.imovel_imagem || casaCard  }
+              src={imovel.imovel_imagem || casaCard}
               alt="Imagem do imóvel"
               className="h-full max-w-[300px] object-cover rounded-l-2xl"
             />
           </div>
-          
 
           <div className="pt-5 pb-5 flex flex-col gap-10 flex-1 justify-between">
             <div className="text-[#595959] text-[16px] font-bold">
@@ -86,7 +92,11 @@ const CardImovel = () => {
 
           <div className="flex flex-col justify-between items-end p-5">
             <div className="w-[50px] h-[50px] bg-[#E0430033] flex items-center justify-center rounded cursor-pointer hover:bg-[#E04300]/30 hover:text-white">
-              <box-icon name="heart" color="#E04300B2" className="hover:text-white"></box-icon>
+              <box-icon
+                name="heart"
+                color="#E04300B2"
+                className="hover:text-white"
+              ></box-icon>
             </div>
 
             <div className="mt-auto">

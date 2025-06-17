@@ -4,9 +4,11 @@ import { FiltroContext } from "../contexts/FiltroContext";
 const TiposImoveis = () => {
   const { tipoImovel, setTipoImovel } = useContext(FiltroContext);
 
-  const selecionarTipo = (tipo) => {
-    setTipoImovel(tipoImovel === tipo ? "" : tipo); 
-  };
+const selecionarTipo = (tipo) => {
+  const tipoNormalizado = tipo.trim().toLowerCase();
+  setTipoImovel(tipoImovel === tipoNormalizado ? "" : tipoNormalizado);
+};
+
 
   return (
     <div className="p-[34px] border border-[#00000026] w-[370px]">
@@ -15,18 +17,18 @@ const TiposImoveis = () => {
       </label>
       <div className="flex gap-5 pt-[14px]">
         <div
-          onClick={() => selecionarTipo("Casa")}
+          onClick={() => selecionarTipo("casa")}
           className={`cursor-pointer h-[75px] rounded p-[15px] w-fit
-            ${tipoImovel === "Casa" ? "bg-[#E04300]" : "bg-[#E0430033"}`}
+            ${tipoImovel === "casa" ? "bg-[#E04300]" : "bg-[#E0430033"}`}
         >
           <div className="flex flex-col items-center">
             <box-icon
               name="home"
-              color={tipoImovel === "Casa" ? "white" : "#E04300B2"}
+              color={tipoImovel === "casa" ? "white" : "#E04300B2"}
             ></box-icon>
             <span
               className={`text-sm ${
-                tipoImovel === "Casa" ? "text-white" : "text-[#E04300B2]"
+                tipoImovel === "casa" ? "text-white" : "text-[#E04300B2]"
               }`}
             >
               Casa
@@ -35,18 +37,18 @@ const TiposImoveis = () => {
         </div>
 
         <div
-          onClick={() => selecionarTipo("Apartamento")}
+          onClick={() => selecionarTipo("apartamento")}
           className={`cursor-pointer h-[75px] rounded p-[15px] w-fit
-            ${tipoImovel === "Apartamento" ? "bg-[#E04300]" : "bg-[#E0430033"}`}
+            ${tipoImovel === "apartamento" ? "bg-[#E04300]" : "bg-[#E0430033"}`}
         >
           <div className="flex flex-col items-center">
             <box-icon
               name="building-house"
-              color={tipoImovel === "Apartamento" ? "white" : "#E04300B2"}
+              color={tipoImovel === "apartamento" ? "white" : "#E04300B2"}
             ></box-icon>
             <span
               className={`text-sm ${
-                tipoImovel === "Apartamento" ? "text-white" : "text-[#E04300B2]"
+                tipoImovel === "apartamento" ? "text-white" : "text-[#E04300B2]"
               }`}
             >
               Apartamento
