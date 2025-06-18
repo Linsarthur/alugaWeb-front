@@ -16,7 +16,6 @@ export async function useCriarUsuario(dados) {
         const response = await baseUrl.post("/usuarios", dados)
         console.log(response);
         return response.data
-        //chamar função de buscar usuário?
     } catch (error) {
         return error.message
     }
@@ -26,7 +25,6 @@ export async function useEditarUsuario(dados) {
         const response = await baseUrl.post(`/usuarios/:${dados.usuario_id}`, dados)
         console.log(response);
         return response.data
-        //chamar função de buscar usuários?
     } catch (error) {
         return error.message
     }
@@ -36,7 +34,6 @@ export async function useDeletarUsuario(dados) {
         const response = await baseUrl.post(`/usuarios/:${dados.usuario_id}`)
         console.log(response);
         return response.data
-        //chamar função de buscar usuários?p
     } catch (error) {
         return error.message
     }

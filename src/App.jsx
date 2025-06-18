@@ -1,13 +1,18 @@
 import AntProvider from "./contexts/AntContext";
+import { FiltroProvider } from "./contexts/FiltroContext";
+import UsuarioProvider from "./contexts/usuarioContext";
 import Paths from "./Routes/Paths";
-
 
 function App() {
   return (
     <>
-      <AntProvider>
-        <Paths />
-      </AntProvider>
+      <UsuarioProvider>
+        <AntProvider>
+          <FiltroProvider>
+            <Paths />
+          </FiltroProvider>
+        </AntProvider>
+      </UsuarioProvider>
     </>
   );
 }
