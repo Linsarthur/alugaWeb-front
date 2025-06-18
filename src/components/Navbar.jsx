@@ -49,9 +49,9 @@ const Navbar = () => {
               </a>
             </div>
             <div className="flex mt-[7px] mr-[50px]">
-              {usuario?.usuario_foto ? (
+              {usuario?.usuario_imagem ? (
                 <img
-                  src={usuario.usuario_foto}
+                  src={usuario.usuario_imagem}
                   alt="Foto do usuário"
                   className="w-[36px] h-[36px] rounded-full object-cover"
                 />
