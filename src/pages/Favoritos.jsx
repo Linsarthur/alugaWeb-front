@@ -69,7 +69,7 @@ const handleRemove = async (favorito) => {
         ) : (
           <div className="grid grid-cols-3 gap-6">
             {favorites
-              .filter((fav) => fav.imoveis) // Garante que o imóvel existe
+              .filter((fav) => fav.imoveis) 
               .map((fav) => {
                 const imovel = fav.imoveis;
 

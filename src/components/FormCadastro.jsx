@@ -14,7 +14,7 @@ const FormCadastro = () => {
     usuario_telefone: "",
     usuario_nascimento: "",
     usuario_nivel: "",
-    usuario_imagem: null, // aqui vai ser um File
+    usuario_imagem: null, 
   });
 
   function handleChange(e) {
@@ -23,7 +23,7 @@ const FormCadastro = () => {
     if (type === "file") {
       setFormData((prev) => ({
         ...prev,
-        [name]: files[0] || null, // pega só o primeiro arquivo
+        [name]: files[0] || null, 
       }));
     } else {
       setFormData((prev) => ({
@@ -52,7 +52,7 @@ const FormCadastro = () => {
 
       const response = await AXIOS.post("/usuarios", data, {
         headers: {
-          "Content-Type": "multipart/form-data", // pode omitir, axios detecta
+          "Content-Type": "multipart/form-data",
         },
       });
 
