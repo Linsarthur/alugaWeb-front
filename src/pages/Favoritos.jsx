@@ -32,17 +32,28 @@ export default function Favoritos() {
     carregarFavoritos();
   }, []);
 
-  const handleRemove = async (favorito_id) => {
-    try {
-      await AXIOS.delete(`/favoritos/${favorito_id}`);
-      setFavorites((prev) =>
-        prev.filter((fav) => fav.favorito_id !== favorito_id)
-      );
-    } catch (error) {
-      console.error("Erro ao remover favorito:", error);
-      alert("Erro ao remover favorito.");
-    }
-  };
+const handleRemove = async (favorito) => {
+  const usuario = JSON.parse(sessionStorage.getItem("usuario"));
+  const usuario_id = usuario?.usuario_id;
+  const imovel_id = favorito.imovel_id; // ou favorito.imoveis.imovel_id, dependendo do formato
+
+  if (!usuario_id || !imovel_id) {
+    alert("Dados insuficientes para remover o favorito.");
+    return;
+  }
+
+  try {
+    await AXIOS.delete(`/favoritos/${usuario_id}/${imovel_id}`);
+
+    setFavorites((prev) =>
+      prev.filter((fav) => fav.favorito_id !== favorito.favorito_id)
+    );
+  } catch (error) {
+    console.error("Erro ao remover favorito:", error);
+    alert("Erro ao remover favorito.");
+  }
+};
+
 
   const handleContact = (id) => {
     console.log(`Contatar favorito #${id}`);
@@ -77,7 +88,7 @@ export default function Favoritos() {
                       garage: imovel.imovel_garagens,
                       price: Number(imovel.imovel_valor),
                     }}
-                    onRemove={() => handleRemove(fav.favorito_id)}
+                    onRemove={() => handleRemove(fav)}
                     onContact={() => handleContact(imovel.imovel_id)}
                   />
                 );
