@@ -2,14 +2,14 @@ import casaCard from "../assets/casaCard.png";
 
 export default function CardFavorite({ property, onRemove, onContact }) {
   return (
-    <div className="flex border border-gray-300 rounded-2xl p-4 gap-5 bg-white shadow-sm">
+    <div className="flex flex-col border border-gray-300 rounded-2xl  gap-5 bg-white shadow-sm">
       <img
         src={property.image || casaCard}
         alt="Imagem do imóvel"
-        className="h-[200px] w-[250px] object-cover rounded-xl"
+        className="h-full w-full object-cover rounded-xl"
       />
 
-      <div className="flex flex-col justify-between flex-1">
+      <div className="flex flex-col justify-between flex-1 p-5">
         <div>
           <h2 className="text-xl font-semibold text-gray-800">{property.title}</h2>
           <p className="text-sm text-gray-500">{property.address}</p>

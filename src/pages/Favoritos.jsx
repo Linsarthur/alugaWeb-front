@@ -67,7 +67,7 @@ const handleRemove = async (favorito) => {
         {favorites.length === 0 ? (
           <p className="text-gray-500 text-lg">Nenhum imóvel favoritado.</p>
         ) : (
-          <div className="grid grid-cols-3 gap-6">
+          <div className="flex gap-10">
             {favorites
               .filter((fav) => fav.imoveis) 
               .map((fav) => {

@@ -63,7 +63,7 @@ const Pesquisa = () => {
   return (
     <>
       <Navbar />
-      <div className="px-[150px]">
+      <div className="px-[50px] ">
         <Breadcrumb
           totalImoveis={imoveis.length}
           imovel_estado="CE"
@@ -71,7 +71,7 @@ const Pesquisa = () => {
         />
       </div>
 
-      <div className="flex px-[200px] gap-5 justify-between">
+      <div className="flex px-[100px] pb-[50px] gap-5 justify-between">
         <div className="">
           <Aba />
           <Localizacao />

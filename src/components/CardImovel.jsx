@@ -102,17 +102,17 @@ const CardImovel = () => {
         return (
           <div
             key={imovel.imovel_id}
-            className="flex border border-gray-500/15 rounded-2xl gap-5"
+            className="flex border border-gray-500/15 rounded-2xl gap-9"
           >
             <div>
               <img
                 src={imovel.imovel_imagem || casaCard}
                 alt="Imagem do imóvel"
-                className="h-full max-w-[300px] object-cover rounded-l-2xl"
+                className="h-full max-w-2xs rounded-l-2xl"
               />
             </div>
 
-            <div className="pt-5 pb-5 flex flex-col gap-10 flex-1 justify-between">
+            <div className="pt-5 pb-5  flex flex-col gap-10 flex-1 justify-between">
               <div className="text-[#595959] text-[16px] font-bold">
                 <h2>
                   {imovel.imovel_logradouro}, {imovel.imovel_numero},{" "}

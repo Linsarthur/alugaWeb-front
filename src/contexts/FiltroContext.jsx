@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const FiltroContext = createContext();
 
 export const FiltroProvider = ({ children }) => {
-  const [tipoNegocio, setTipoNegocio] = useState("venda");
+  const [tipoNegocio, setTipoNegocio] = useState("");
   const [localizacao, setLocalizacao] = useState("");
   const [tipoImovel, setTipoImovel] = useState("");
   const [precoMin, setPrecoMin] = useState(null);
