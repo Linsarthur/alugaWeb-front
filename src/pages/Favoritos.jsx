@@ -1,47 +1,92 @@
-// src/pages/Favoritos.jsx
-import React from 'react'
-import Navbar from '../components/Navbar'
-import CardFavorite from '../components/CardFavorite'
-import Footer from '../components/Footer'
-import casasFavorito from '../assets/casas-favorito.png'
+import { useEffect, useState } from "react";
+import CardFavorite from "../components/CardFavorite";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import { AXIOS } from "../services";
 
 export default function Favoritos() {
-  // 1️⃣ Declaração de favorites dentro do componente
-  const favorites = Array.from({ length: 6 }, (_, i) => ({
-    id: i + 1,
-    image: casasFavorito,
-    title: 'Rua Eduardo Bezerra, 1182',
-    address: 'São João do Tauape, Fortaleza/CE',
-    descriptionLine1: 'Casa para alugar, 500m²',
-    descriptionLine2: 'Excelente Casa à venda ou Locação',
-    size: 500,
-    bedrooms: 3,
-    garage: 5,
-    price: 5000,
-  }))
+  const [favorites, setFavorites] = useState([]);
 
-  const handleRemove = (id) => console.log(`Remover favorito #${id}`)
-  const handleContact = (id) => console.log(`Contatar favorito #${id}`)
+  useEffect(() => {
+    const usuario = JSON.parse(sessionStorage.getItem("usuario"));
+    const token = sessionStorage.getItem("token");
+
+    if (!usuario || !token) {
+      console.warn("Usuário não logado.");
+      return;
+    }
+
+    async function carregarFavoritos() {
+      try {
+        const response = await AXIOS.get(`/favoritos/${usuario.usuario_id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setFavorites(response.data);
+      } catch (err) {
+        console.error("Erro ao buscar favoritos:", err);
+      }
+    }
+
+    carregarFavoritos();
+  }, []);
+
+  const handleRemove = async (favorito_id) => {
+    try {
+      await AXIOS.delete(`/favoritos/${favorito_id}`);
+      setFavorites((prev) =>
+        prev.filter((fav) => fav.favorito_id !== favorito_id)
+      );
+    } catch (error) {
+      console.error("Erro ao remover favorito:", error);
+      alert("Erro ao remover favorito.");
+    }
+  };
+
+  const handleContact = (id) => {
+    console.log(`Contatar favorito #${id}`);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Navbar />
 
       <main className="flex-1 p-8 flex justify-center">
-        <div className="grid grid-cols-3 gap-6">
-          {/* 2️⃣ Uso de favorites.map */}
-          {favorites.map((prop) => (
-            <CardFavorite
-              key={prop.id}
-              property={prop}
-              onRemove={() => handleRemove(prop.id)}
-              onContact={() => handleContact(prop.id)}
-            />
-          ))}
-        </div>
+        {favorites.length === 0 ? (
+          <p className="text-gray-500 text-lg">Nenhum imóvel favoritado.</p>
+        ) : (
+          <div className="grid grid-cols-3 gap-6">
+            {favorites
+              .filter((fav) => fav.imoveis) // Garante que o imóvel existe
+              .map((fav) => {
+                const imovel = fav.imoveis;
+
+                return (
+                  <CardFavorite
+                    key={fav.favorito_id}
+                    property={{
+                      id: imovel.imovel_id,
+                      image: imovel.imovel_imagem,
+                      title: `${imovel.imovel_logradouro}, ${imovel.imovel_numero}`,
+                      address: `${imovel.imovel_bairro}, ${imovel.imovel_cidade}/${imovel.imovel_estado}`,
+                      descriptionLine1: `${imovel.imovel_tipo} para ${imovel.imovel_modalidade}, ${imovel.imovel_area}m²`,
+                      descriptionLine2: imovel.imovel_descricao,
+                      size: imovel.imovel_area,
+                      bedrooms: imovel.imovel_quartos,
+                      garage: imovel.imovel_garagens,
+                      price: Number(imovel.imovel_valor),
+                    }}
+                    onRemove={() => handleRemove(fav.favorito_id)}
+                    onContact={() => handleContact(imovel.imovel_id)}
+                  />
+                );
+              })}
+          </div>
+        )}
       </main>
 
       <Footer />
     </div>
-  )
+  );
 }

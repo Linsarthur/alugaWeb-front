@@ -32,7 +32,7 @@ const Navbar = () => {
           <div className=" flex justify-between items-center my-[14px] gap-4">
             <div className="flex gap-2 mr-5">
               <box-icon name="heart" color="#595959"></box-icon>
-              <Link to="/pesquisa" className="text-[#595959]">
+              <Link to="/favoritos" className="text-[#595959]">
                 Favoritos
               </Link>
             </div>
