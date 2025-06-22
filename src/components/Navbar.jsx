@@ -10,12 +10,12 @@ const Navbar = () => {
   const navigate = useNavigate();
   const logout = () => {
     sessionStorage.clear();
-    navigate("/")
+    navigate("/");
   };
 
   return (
-    <header className="flex justify-between items-center  px-[50px]  border-b-1 border-[#00000026] w-full">
-      <div className="flex items-center">
+    <header className="flex justify-between items-center border-b-1 border-[#00000026] w-full">
+      <div className="flex items-center px-4 cursor-pointer" onClick={() => navigate("/pesquisa")}>
         <div className="bg-[#E04300] w-[36px] h-[36px] rounded-[4px] ">
           <img
             src={icone}
@@ -30,7 +30,7 @@ const Navbar = () => {
       <div>
         {logado ? (
           <div className=" flex justify-between items-center my-[14px] gap-4">
-            <div className="flex gap-2 mr-5">
+            <div className="flex gap-2">
               <box-icon name="heart" color="#595959"></box-icon>
               <Link to="/favoritos" className="text-[#595959]">
                 Favoritos
@@ -40,11 +40,7 @@ const Navbar = () => {
               <h2 className="text-[#E04300] font-bold">
                 {usuario?.usuario_nome}
               </h2>
-              <a
-                href="/"
-                className="text-[#959595] font-bold"
-                onClick={logout}
-              >
+              <a href="/" className="text-[#959595] font-bold" onClick={logout}>
                 Sair
               </a>
             </div>
@@ -64,11 +60,11 @@ const Navbar = () => {
           </div>
         ) : (
           <>
-            <div className="">
+            <div className="px-4">
               <button className="flex">
                 <a
                   href="/login"
-                  className="flex justify-center items-center gap-2 rounded-[8px] mb-[14px] mt-[20px] mr-[50px] px-[35px] py-[16px] bg-[#E0430033] text-[#E04300B2] font-bold"
+                  className="flex justify-center items-center gap-2 rounded-[8px] mb-[14px] mt-[20px] px-[25px] py-[12px] bg-[#E0430033] text-[#E04300B2] font-bold"
                   variant="solid"
                 >
                   <img src={icone2} alt="Entrar" color="#FFFFFF" />

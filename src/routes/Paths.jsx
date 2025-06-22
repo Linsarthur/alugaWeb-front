@@ -18,14 +18,7 @@ const Paths = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/favoritos" element={<Favoritos />} />
-          <Route
-            path="/pesquisa"
-            element={
-              <SafePath>
-                <Pesquisa />
-              </SafePath>
-            }
-          />
+          <Route path="/pesquisa" element={<Pesquisa />} />
           <Route
             path="/cadastrarimovel"
             element={
