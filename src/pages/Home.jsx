@@ -52,8 +52,8 @@ const Home = () => {
                 className=" bg-[#E04300] text-white font-bold rounded-full cursor-pointer 
                             w-[54px] h-[54px] flex justify-center items-center"
               >
-                <span className="block max-[640px]:hidden">Buscar</span>
-                <img src={lupa} alt="" className="md:hidden" />
+                <span className="block md:hidden">Buscar</span>
+                <img src={lupa} alt="" className="" />
               </button>
             </div>
           </div>
