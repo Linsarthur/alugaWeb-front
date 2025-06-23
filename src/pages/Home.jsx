@@ -26,10 +26,10 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className=" flex justify-between bg-white max-[640px]:flex-col max-[640px]:items-center max-[640px]:justify-center max-[640px]:px-4 pt-9">
-        <main className="flex flex-1 items-center px-[50px]  max-[640px]:flex-col max-[640px]:gap-8 max-[640px]:px-6 max-[640px]:w-full">
-          <div className="w-full flex flex-col justify-center pt-[100px]">
-            <h1 className="text-[28px] font-extrabold text-center mb-2 leading-[100%] text-[#1E1E1E]">
+      <div className=" flex justify-between bg-white max-[640px]:flex-col max-[640px]:items-center max-[640px]:justify-center max-[640px]:px-4 pt-9 xl:relative">
+        <main className="flex flex-1 items-center px-[50px]  max-[640px]:flex-col max-[640px]:gap-8 max-[640px]:px-6 max-[640px]:w-full xl: justify-between">
+          <div className="w-full flex flex-col justify-center pt-[100px] xl:justify-start xl:w-1/2">
+            <h1 className="text-[28px] font-extrabold mb-2 leading-[100%] text-[#1E1E1E]">
               Onde você quer morar?
             </h1>
 
